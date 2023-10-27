@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <style>
+
+    img {
+      max-width: 70%;
+    }
+
+    .image-center {
+      display: block;
+      margin: 10px auto;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1 id="title" class="text-center">Welcome to my website.</h1>
+  <div class="row">
+    <article class="col-sm-8">
+      <p>My website is very important because I have many important things
+        to say. Here is a picture of a puppy in a cup: </p>
+      <img src="pup-in-cup.jpg" alt="Puppy in Cup" class="image-center">
+      <p>Here are some more thoughts: Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Cum harum labore veritatis, possimus
+        facilis quas repellat, explicabo, ad commodi ipsum quidem nostrum
+        earum pariatur fugit! Magni sunt nulla impedit! Facilis.</p>
+      <p>Rerum debitis aspernatur, ipsum animi! Quis ullam dolore blanditiis
+        accusantium eius minus tempore, iure maxime similique vel! Possimus
+        reprehenderit autem, recusandae quos laudantium nesciunt libero suscipit
+        officia rerum, et.</p>
+      <!-- Removed the last paragraph -->
+    </article>
+    <aside class="col-sm-4">
+      <!-- Updated the content in the aside -->
+      <p>My sincere apologies for the list's existence.</p>
+    </aside>
+  </div>
+  <div class="row mb-5">
+    <div class="col-sm-4">
+      Red
+      <input class="form-control" type="number" min="0" max="255" value="255" id="red">
+    </div>
+    <div class="col-sm-4">
+      Blue
+      <input class="form-control" type="number" min="0" max="255" value="255" id="blue">
+    </div>
+    <div class="col-sm-4">
+      Green
+      <input class="form-control" type="number" min="0" max="255" value="255" id="green">
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+  $(document).ready(function() {
+    // When the DOM is ready
+    console.log("Let’s get ready to party with jQuery!");
+
+    // Generate a random font size from 0 to 100 for the title
+    const randomFontSize = Math.floor(Math.random() * 101);
+    $("#title").css("font-size", randomFontSize + "px");
+
+    // Add an item to the list
+    $("ol").append("<li>New item added to the list!</li>");
+
+    // Change background color when input values change
+    $("input").on("input", function() {
+      const red = $("#red").val();
+      const green = $("#green").val();
+      const blue = $("#blue").val();
+      $("body").css("background-color", `rgb(${red}, ${green}, ${blue})`);
+    });
+
+    // Remove the image when clicked
+    $("img").on("click", function() {
+      $(this).remove();
+    });
+  });
+</script>
+</body>
+</html>
